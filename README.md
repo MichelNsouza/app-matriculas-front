@@ -1,18 +1,17 @@
-# Gerenciador de Matriculas - FrontEnd
+# Gerenciador de Matriculas - Front-end
 
 ## Sobre o Projeto
 O projeto trata-se de uma aplicação SPA, para consumir uma api que gerencia matriculas de alunos de uma unidade academica XYZ.
 
-## Tecnologias Utilizadas
+## Tecnologias Utilizadas no Front-end
 - VueJs
 - BootStrap
 - Pinia - gerenciamento de estado
 - Vue-Router - Roteamento baseado em componente
 - Axios -  Cliente HTTP 
 - Vite -  Pré-empacotamento de dependência
-- Laravel - [API Backend](https://github.com/MichelNsouza/api.GerenciadorMatriculas)
 
-## Backend
+## Back-end
 - Laravel
 - MySql
 
