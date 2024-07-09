@@ -8,9 +8,15 @@ export default {
 </script>
 
 <template>
-  <FormComponent />
-  <GraficoComponent />
-  
+
+  <section>
+    <FormComponent />
+  </section>
+
+  <section class="row justify-content-center align-content-center border shadow-sm mt-4 px-2 py-4">
+    <GraficoComponent />
+  </section>
+
 </template>
 
 <style scoped>

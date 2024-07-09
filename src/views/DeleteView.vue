@@ -8,13 +8,6 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex">
-
-    <h1>Listagem de alunos cadastrados</h1>
-    <button>Voltar</button>
-
-  </div>
-
   <hr>
   <section>
     <form  @submit.prevent="cadastrarAluno" class="row g-3">
