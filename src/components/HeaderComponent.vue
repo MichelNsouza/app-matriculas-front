@@ -7,31 +7,33 @@ export default{
     return {
       titulo:'',
       tipo:'',
-      rotaAtual:'',
-      path:[]
     }
   },
   components:{
     BtnComponent
   },
-  mounted(){
-    this.path = this.$router.currentRoute;
+  created() {
     this.defineTitulo();
+  },
+  watch: {
+      $route(to, from) {
+        this.defineTitulo();
+      }
   },
   methods:{
     defineTitulo(){
 
-        const rota = this.path;
+      if(this.$route.fullPath === '/'){
 
-        if(rota.path === '/'){
-            this.titulo='Cadastro de alunos';
-            this.tipo='excluir';
-            this.rotaAtual='/';
-        }else if(rota.path === '/excluir'){
-            this.titulo = 'Listagem de alunos cadastrados';
-            this.tipo='voltar';
-            this.rotaAtual='/excluir';
-        }
+        this.titulo='Cadastramento de alunos';
+        this.tipo='excluir';
+
+      }else if(this.$route.fullPath === '/excluir'){
+
+          this.titulo = 'Listagem de alunos cadastrados';
+          this.tipo='voltar';
+
+      }
     }
   }
 }
@@ -46,9 +48,11 @@ export default{
    <p class="h1">Quack</p>
 </div>
 
-<div class="row justify-content-center align-content-center border-bottom mb-5">
-    <h1 class="h4"><span v-text="titulo"></span></h1>
-    <BtnComponent :tipoBtn="tipo" :rota="rotaAtual"/>
+<div class="d-flex col-12 align-content-md-center justify-content-md-between border-bottom mb-5">
+
+  <h1 class="h4 text-danger col-9 mb-2"><span v-text="titulo"></span></h1>
+
+  <BtnComponent :tipoBtn="tipo" :rota="this.$route.fullPath" class="col-3 mb-2 d-flex align-content-md-center justify-content-end"/>
 
 </div>
 

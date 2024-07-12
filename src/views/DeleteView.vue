@@ -1,6 +1,8 @@
 <script>
 import ListComponent from '@/components/ListComponent.vue';
 import ModalComponent from '@/components/ModalComponent.vue';
+import BtnComponent from '@/components/BtnComponent.vue';
+
 export default {
   components: { ListComponent, ModalComponent },
 }

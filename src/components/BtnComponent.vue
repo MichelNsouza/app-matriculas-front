@@ -2,11 +2,16 @@
 import { RouterLink } from 'vue-router';
 
 export default {
+    components: {
+        RouterLink
+    },
     data() {
         return {
             titulo: '',
             estilo: '',
             icone: '',
+            rotaNova:'',
+
         }
     },
     props: {
@@ -16,53 +21,49 @@ export default {
     created() {
         this.defineBotao();
     },
+    watch: {
+        $route(to, from) {
+            this.defineBotao();
+        }
+    },
     methods: {
         defineBotao() {
 
             const tipo = this.tipoBtn;
             
-            if (tipo === 'excluir') {
+            if (this.rota === '/') {
                 this.titulo = 'Excluir Aluno';
                 this.icone = 'lixo';
-                this.estilo = 'btn-danger';
-            } else if (tipo === 'voltar') {
+                this.estilo = 'btn btn-danger btn-sm';
+                this.rotaNova = '/excluir';
+            } else if (this.rota === '/excluir') {
                 this.titulo = 'Voltar';
-                this.icone = 'voltar';
-                this.estilo = 'btn-success';
+                this.icone = 'volta';
+                this.estilo = 'btn btn-success btn-sm';
+                this.rotaNova = '/';
             }
         }
-    },
-    components: {
-        RouterLink
     }
 }
 </script>
 
 <template>
-    <div v-if="rota">
-        <router-link :to="rota">
-            <div class="btn-group" role="group">
-                <div :class="['', estilo]">
-                    <img class="icone btn-sm" :src="`/src/assets/icons/${icone}.svg`" alt="">
-                    <span class="btn-sm" v-text="titulo"></span>
+    <router-link :to="rotaNova">
+        <div class="btn-group" role="group">
+            <div :class="estilo" class="d-flex p-1">
+                <div class="iconeEstilo ">
+                    <img class="icone" :src="`/src/assets/icons/${icone}.svg`" alt="">
                 </div>
+                <span v-text="titulo"></span>
             </div>
-        </router-link>
-    </div>
-    <div v-else>
-        <button>
-            <div class="btn-group" role="group">
-                <div :class="['', estilo]">
-                    <img class="icone btn-sm" :src="`/src/assets/icons/${icone}.svg`" alt="">
-                    <span class="btn-sm" v-text="titulo"></span>
-                </div>
-            </div>
-        </button>
-    </div>
+        </div>
+    </router-link>
 </template>
 
 <style scoped>
 .icone {
-    width: 5%;
+    width: 15px;
+    height: 100%;
 }
+
 </style>
