@@ -21,7 +21,7 @@ export default{
 <template>
   <div class="container-fluid d-flex justify-content-center align-items-md-center">
     <div class="row d-flex justify-content-center">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <HeaderComponent />
         <main>
           <RouterView />

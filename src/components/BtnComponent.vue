@@ -50,11 +50,11 @@ export default {
 <template>
     <router-link :to="rotaNova">
         <div class="btn-group" role="group">
-            <div :class="estilo" class="d-flex p-1">
-                <div class="iconeEstilo ">
+            <div :class="estilo" class="d-flex">
+                <div class="filtro px-2">
                     <img class="icone" :src="`/src/assets/icons/${icone}.svg`" alt="">
                 </div>
-                <span v-text="titulo"></span>
+                <span class="pe-2" v-text="titulo"></span>
             </div>
         </div>
     </router-link>
@@ -64,6 +64,9 @@ export default {
 .icone {
     width: 15px;
     height: 100%;
+}
+.filtr{
+    background-color: rgba(0, 0, 0, 0.219);
 }
 
 </style>

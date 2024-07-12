@@ -7,7 +7,7 @@ export default {
       ra:'',
       curso_id:'',
       valorBotao:'Selecione um curso',
-      cursos:[],
+      todosCursos:[],
     }
   },
   created() {
@@ -38,7 +38,7 @@ export default {
     async fetchData() {
       try {
         const responseTodosCursos = await getTodosCursos();
-        this.cursos = responseTodosCursos.data.cursos;
+        this.todosCursos = responseTodosCursos.data.cursos;
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
       }
@@ -72,7 +72,7 @@ export default {
 
           <li class="dropdown-item" v-on:click="valorBotao='Selecione um curso'">Selecione um curso</li>
 
-          <template v-for="curso in cursos" v-bind:key=curso.id>
+          <template v-for="curso in todosCursos" v-bind:key=curso.id>
             <li class="dropdown-item" v-on:click=" valorBotao=curso.nome, curso_id=curso.id">{{curso.nome}}</li>
           </template>
 
