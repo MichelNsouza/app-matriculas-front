@@ -1,13 +1,3 @@
-<template>
-  <section>
-    <FormComponent />
-  </section>
-
-  <section class="row justify-content-center align-content-center border shadow-sm mt-4 px-2 py-4">
-    <GraficoComponent :chartData="chartData" :chartOptions="chartOptions" />
-  </section>
-</template>
-
 <script>
 import FormComponent from '@/components/FormComponent.vue';
 import GraficoComponent from '@/components/GraficoComponent.vue';
@@ -71,6 +61,18 @@ export default {
   }
 }
 </script>
+
+<template>
+
+  <section>
+    <FormComponent />
+  </section>
+
+  <section class="row justify-content-center align-content-center border shadow-sm mt-4 px-2 py-4">
+    <GraficoComponent :chartData="chartData" :chartOptions="chartOptions" />
+  </section>
+
+</template>
 
 <style scoped>
 </style>

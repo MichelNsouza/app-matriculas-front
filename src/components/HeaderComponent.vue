@@ -41,7 +41,7 @@ export default{
 </script>
 
 <template>
-<div class="d-flex mt-4 d-flex justify-content-center align-items-md-center flex-row">
+<div class="d-flex mt-0 d-flex justify-content-center align-items-md-center flex-row">
    <div class="row size mb-5">
         <img class="img-fluid" src="/src/assets/icons/logo.svg" alt="">
    </div>
