@@ -14,11 +14,13 @@ export default {
 }
 </script>
 <template>
-    <Bar
-    id="my-chart-id"
-    :options="chartOptions"
-    :data="chartData"
-    />
+    <div class="row justify-content-between align-content-center py-1">
+        <Bar
+        id="my-chart-id"
+        :options="chartOptions"
+        :data="chartData"
+        />
+    </div>
 </template>
   
 <style scoped>

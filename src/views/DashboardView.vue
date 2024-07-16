@@ -57,22 +57,21 @@ export default {
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
       }
-    }
+    },
   }
 }
 </script>
 
 <template>
+  <section class="justify-content-center align-content-center bg-white border shadow-sm mt-3 px-2 py-4">
+    <FormComponent @aluno-cadastrado="defineGrafico()" />
+  </section> 
 
-  <section>
-    <FormComponent />
-  </section>
-
-  <section class="row justify-content-center align-content-center border shadow-sm mt-4 px-2 py-4">
+  <section class="justify-content-center align-content-center bg-white border shadow-sm mt-3 px-2 py-4">
     <GraficoComponent :chartData="chartData" :chartOptions="chartOptions" />
   </section>
-
 </template>
+
 
 <style scoped>
 </style>

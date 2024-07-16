@@ -41,21 +41,22 @@ export default{
 </script>
 
 <template>
-<div class="d-flex mt-0 d-flex justify-content-center align-items-md-center flex-row">
-   <div class="row size mb-5">
-        <img class="img-fluid" src="/src/assets/icons/logo.svg" alt="">
-   </div>
-   <p class="h1">Quack</p>
+<div class="row">
+  <div class="d-flex mt-0 d-flex justify-content-center align-items-center">
+    <div class="size mb-3">
+          <img class="img-fluid" src="/src/assets/icons/logo.svg" alt="">
+    </div>
+    <p class="h1">Quack</p>
+  </div>
+
+  <div class="d-flex align-content-center justify-content-between border-bottom mb-3">
+
+    <h1 class="h4 text-danger mb-2"><span v-text="titulo"></span></h1>
+
+    <BtnComponent :tipoBtn="tipo" :rota="this.$route.fullPath" class="mb-2 d-flex align-content-center justify-content-end"/>
+
+  </div>
 </div>
-
-<div class="d-flex col-12 align-content-md-center justify-content-md-between border-bottom mb-5">
-
-  <h1 class="h4 text-danger col-9 mb-2"><span v-text="titulo"></span></h1>
-
-  <BtnComponent :tipoBtn="tipo" :rota="this.$route.fullPath" class="col-3 mb-2 d-flex align-content-md-center justify-content-end"/>
-
-</div>
-
 </template>
 
 <style scoped>

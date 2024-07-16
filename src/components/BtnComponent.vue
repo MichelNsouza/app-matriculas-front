@@ -52,7 +52,12 @@ export default {
         <div class="btn-group" role="group">
             <div :class="estilo" class="d-flex">
                 <div class="filtro px-2">
-                    <img class="icone" :src="`/src/assets/icons/${icone}.svg`" alt="">
+                    <template v-if="icone==='volta'">
+                        <i class="bi bi-reply"></i>
+                    </template>
+                    <template v-else-if="icone==='lixo'">
+                        <i class="bi bi-trash"></i>
+                    </template>
                 </div>
                 <span class="pe-2" v-text="titulo"></span>
             </div>

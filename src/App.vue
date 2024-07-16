@@ -19,11 +19,11 @@ export default{
 </script>
 
 <template>
-  <div class="container-fluid d-flex justify-content-center align-items-md-center">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-12">
+  <div class="container-fluid bg-light justify-content-center align-items-center">
+    <div class="d-flex justify-content-md-center">
+      <div class="col-md-7">
         <HeaderComponent />
-        <main>
+        <main class="row">
           <RouterView />
         </main>
         <FooterComponent />
@@ -31,6 +31,7 @@ export default{
     </div>
   </div>
 </template>
+
 
 <style scoped>
 

@@ -31,9 +31,9 @@ export default {
 </script>
 
 <template>
-    <div class="pt-2 text-white container-sm rounded d-flex justify-content-center align-items-center flex-column" :class="estiloBg">
-        <p class="fw-bolder fs-4 text-center">{{ texto }}</p>
-        <p class="fw-bolder fs-4">{{ numero }}</p>
+    <div class="mt-2 mb-2 pb-0 text-white container-sm rounded d-flex justify-content-center align-items-center flex-column" :class="estiloBg">
+        <p class="fw-bolder pb-0 fs-5 text-center">{{ texto }}</p>
+        <p class="fw-bolder pb-0  fs-5">{{ numero }}</p>
     </div>
 </template>
 
