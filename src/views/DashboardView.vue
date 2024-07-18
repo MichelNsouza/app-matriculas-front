@@ -1,7 +1,7 @@
 <script>
 import FormComponent from '@/components/FormComponent.vue';
 import GraficoComponent from '@/components/GraficoComponent.vue';
-import { getQuantidadealunosporCurso } from "@/services/axios";
+import { getTodosCursos } from "@/services/axios";
 
 export default {
   components: { 
@@ -10,6 +10,7 @@ export default {
   },
   data() {
     return {
+      cursos:[],
       chartData: {
         labels: [],
         datasets: []
@@ -31,16 +32,20 @@ export default {
     async defineGrafico() {
       try {
 
-        const responseTodosCursos = await getQuantidadealunosporCurso();
-        const cursos = responseTodosCursos.data;
+        const responseTodosCursos = await getTodosCursos();
+        const todosCursos = responseTodosCursos.data.cursos;
 
-        if (cursos.length > 0) {
+        //console.log(todosCursos);
+
+        if (todosCursos.length > 0) {
           
-          const cursosFiltrados = cursos.map(curso => curso.curso);
-          const qtdAlunosFiltrados = cursos.map(curso => curso.quantidade_alunos);
+          const cursosFiltrados = todosCursos.map(curso => curso.nome);
+          const qtdAlunosFiltrados = todosCursos.map(curso => curso.alunos_count);
+         
+          this.cursos = cursosFiltrados;
 
+         //console.log(this.cursos);
 
-          //console.log(cursosFiltrados);
 
           this.chartData = {
             labels: cursosFiltrados,
@@ -50,7 +55,7 @@ export default {
             }]
           };
 
-          console.log(this.chartData);
+         // console.log(this.chartData);
         } else {
           console.error('Nenhum curso encontrado.');
         }
