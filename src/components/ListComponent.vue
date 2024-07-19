@@ -63,11 +63,11 @@ export default {
 </script>
 
 <template>
-    
+    <div class="bg-white border shadow-sm mt-3 px-2 py-4">
     <h2 class="text-danger fw-bolder fs-5">{{ titulo }}</h2>
 
     <div class="table-responsive">
-        <table class="table">
+        <table class="table ">
             <thead>
                 <tr>
                     <th scope="col ">Nome Do Aluno</th>
@@ -103,6 +103,7 @@ export default {
             </tbody>
         </table>
     </div>
+</div>
 </template>
 
 <style scoped>
