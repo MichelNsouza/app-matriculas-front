@@ -66,7 +66,7 @@ export default {
 
     <h2 class="text-danger fw-bolder fs-5" >{{ titulo }}</h2>
 
-    <table class="table bg-light">
+    <table class="table table-striped table-hover table-sm bg-light">
         <thead>
             <tr class="bg-secondary text-white">
                 <th scope="col ">Nome Do Aluno</th>
