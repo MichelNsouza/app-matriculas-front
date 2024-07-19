@@ -60,7 +60,7 @@ export default {
 </script>
 
 <template>
-  <form  @submit.prevent="cadastrarAluno" class="row justify-content-between align-content-center py-1">
+  <form  @submit.prevent="cadastrarAluno" class="row flex-column flex-lg-row justify-content-between align-content-center py-1">
 
     <div class="col">
       <label for="aluno"  class="form-label text-danger">Nome</label>
@@ -75,7 +75,7 @@ export default {
     <div class="col">
       <label for="curso"  class="form-label text-danger">Curso</label>
       <div class="dropdown">
-        <button class="btn btn-light border dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        <button class="btn btn-light border dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false" v-text="valorBotao">
 
         </button>
@@ -92,8 +92,8 @@ export default {
       </div>
     </div>
 
-    <div class="col align-content-end mt-2">
-      <button type="submit" class="btn btn-danger container-fluid">Cadastrar</button>
+    <div class="col d-flex justify-content-center align-content-center d-md-block  justify-content-md-end align-content-sm-end mt-2">
+      <button type="submit" class="btn btn-danger">Cadastrar</button>
     </div>
 
   </form>

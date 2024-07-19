@@ -101,7 +101,7 @@ export default {
     </div>
   </section>
 
-  <section class="justify-content-md-center align-content-md-center bg-white border shadow-sm mt-3 px-2 py-4">
+  <section class="vw-100 justify-content-md-center align-content-md-center bg-white border shadow-sm mt-3 px-2 py-4">
     <ListComponent :titulo="'Alunos Cadastrados'" :alunos="alunosAtivos" @acao-aluno="buscaAlunos()"/>
     <ListComponent :titulo="'Alunos Removidos'"  :alunos="alunosInativos" @acao-aluno="buscaAlunos()" />
   </section>

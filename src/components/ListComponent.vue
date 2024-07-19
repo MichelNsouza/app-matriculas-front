@@ -8,13 +8,13 @@ export default {
     },
     data() {
         return {
-            
+
         }
     },
     props: {
         titulo: {
             type: String,
-            default:'Lista'
+            default: 'Lista'
         },
         alunos: {
             type: Array
@@ -38,69 +38,71 @@ export default {
             }
         },
         confirmaAcao(id, status) {
-          if(id){
+            if (id) {
 
-            if(status==='ativo'){
-                if (confirm("Deseja realmente excluir esse aluno?")) {
-                    this.desativar(id);
+                if (status === 'ativo') {
+                    if (confirm("Deseja realmente excluir esse aluno?")) {
+                        this.desativar(id);
+                    }
+                } else if (status === 'inativo') {
+                    if (confirm("Deseja realmente ativar o cadastro esse aluno?")) {
+                        this.ativar(id);
+                    }
                 }
-            }else if(status==='inativo'){
-                if (confirm("Deseja realmente ativar o cadastro esse aluno?")) {
-                    this.ativar(id);
-                }
-            } 
 
-            this.emitirAcao();
+                this.emitirAcao();
 
-          }
+            }
         },
         emitirAcao() {
             this.$emit('acao-aluno');
         }
-        
+
     }
 }
 </script>
 
 <template>
+    
+    <h2 class="text-danger fw-bolder fs-5">{{ titulo }}</h2>
 
-    <h2 class="text-danger fw-bolder fs-5" >{{ titulo }}</h2>
-
-    <table class="table table-striped table-hover table-sm bg-light">
-        <thead>
-            <tr class="bg-secondary text-white">
-                <th scope="col ">Nome Do Aluno</th>
-                <th scope="col">R.A</th>
-                <th scope="col">Nome do Curso</th>
-                <th scope="col">Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <template v-for="aluno in alunos" :key="aluno.id">
-                <tr :class=" aluno.status==='ativo' ? '' : 'text-decoration-line-through'">
-                    <th  scope="row ">{{ aluno.nome }}</th>
-                    <td>{{ aluno.registroDoAluno }}</td>
-                    <td>
-                        <template v-for="curso in aluno.cursos" :key="curso.id">
-                            {{curso.nome+" "}}
-                        </template>
-                    </td>
-                    <td>
-                        <div @click="confirmaAcao(aluno.registroDoAluno, aluno.status)" class="btn ">
-
-                            <template v-if="aluno.status ==='ativo'">
-                                <i class="bi bi-trash"></i>
-                            </template>
-                            <template v-else-if="aluno.status ==='inativo'">
-                                <i class="bi bi-person-plus-fill"></i>
-                            </template>
-
-                        </div>
-                    </td>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col ">Nome Do Aluno</th>
+                    <th scope="col">R.A</th>
+                    <th scope="col">Nome do Curso</th>
+                    <th scope="col">Ação</th>
                 </tr>
-            </template>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <template v-for="aluno in alunos" :key="aluno.id">
+                    <tr :class="aluno.status === 'ativo' ? '' : 'text-decoration-line-through'">
+                        <th scope="row ">{{ aluno.nome }}</th>
+                        <td>{{ aluno.registroDoAluno }}</td>
+                        <td>
+                            <template v-for="curso in aluno.cursos" :key="curso.id">
+                                {{ curso.nome + " " }}
+                            </template>
+                        </td>
+                        <td>
+                            <div @click="confirmaAcao(aluno.registroDoAluno, aluno.status)" class="btn ">
+
+                                <template v-if="aluno.status === 'ativo'">
+                                    <i class="bi bi-trash"></i>
+                                </template>
+                                <template v-else-if="aluno.status === 'inativo'">
+                                    <i class="bi bi-person-plus-fill"></i>
+                                </template>
+
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <style scoped>

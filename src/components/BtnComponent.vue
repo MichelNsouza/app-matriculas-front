@@ -49,8 +49,8 @@ export default {
 
 <template>
     <router-link :to="rotaNova">
-        <div class="btn-group" role="group">
-            <div :class="estilo" class="d-flex">
+        <div class="btn-group-sm btn-sm" role="group">
+            <div :class="estilo" class="d-flex ">
                 <div class="filtro px-2">
                     <template v-if="icone==='volta'">
                         <i class="bi bi-reply"></i>
