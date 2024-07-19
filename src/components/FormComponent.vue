@@ -92,7 +92,7 @@ export default {
       </div>
     </div>
 
-    <div class="col align-content-end">
+    <div class="col align-content-end mt-2">
       <button type="submit" class="btn btn-danger container-fluid">Cadastrar</button>
     </div>
 
